@@ -22,7 +22,7 @@ app.config(function($stateProvider, $urlRouterProvider){
     .state('other', {
       url: '/other',
       templateUrl: 'app/partials/other.html',
-      controllers: 'otherCtrl',
+      controller: 'otherCtrl',
       controllerAs: 'other'
     })
 });

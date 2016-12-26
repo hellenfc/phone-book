@@ -1,5 +1,5 @@
 <h1>Other</h1>
-<form ng-submit="other.showAlert()">
+<form ng-submit="other.operation()">
     <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm>
             <label>Type your text</label>
@@ -8,5 +8,12 @@
         </md-input-container>
     </div>
 </form>
-<h3>{{other.textInput}}</h3>
-<h3>{{other.sum}}</h3>
+<div ng-show="other.show">
+    <h3>Resultado: {{other.result}}</h3>
+    <p class="together">
+        Numeros utilizados:&nbsp;
+    </p>
+    <div ng-repeat="number in other.listNumbers track by $index" class="together">
+        <p>{{number}} &nbsp;</p>
+    </div>
+</div>
