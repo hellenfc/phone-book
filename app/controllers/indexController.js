@@ -1,6 +1,6 @@
 app.controller('indexCtrl', function() {
     var vm = this;
-    vm.contacts = JSON.parse(localStorage.getItem('data')) || [];
+    vm.contacts = JSON.parse(localStorage.getItem('contact')) || [];
     // vm.contacts = JSON.parse(localStorage.getItem('data'));
     vm.addContact = function() {
         vm.contacts.push({
@@ -14,6 +14,6 @@ app.controller('indexCtrl', function() {
     }
 
     vm.saveContact = function(){
-      localStorage.setItem('data', JSON.stringify(vm.contacts));
+      localStorage.setItem('contact', JSON.stringify(vm.contacts));
     }
 });

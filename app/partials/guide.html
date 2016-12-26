@@ -1,0 +1,40 @@
+<h1>Guía Telefónica</h1>
+<form ng-submit="guide.addContact()">
+    <md-input-container class="md-block" flex-lg>
+        <md-icon md-font-library="material-icons">account_circle</md-icon>
+        <label>Nombre</label>
+        <input ng-model="guide.contactName" type="text">
+    </md-input-container>
+
+    <md-input-container class="md-block" flex-lg>
+        <md-icon md-font-library="material-icons">phone</md-icon>
+        <label>Número</label>
+        <input ng-pattern="/^[0-9]/" ng-model="guide.contactNumber">
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <md-icon md-font-library="material-icons">room</md-icon>
+        <label>Dirección</label>
+        <textarea ng-model="guide.contactAddress" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
+
+    <md-button type="submit" class="md-raised md-primary">Agregar</md-button>
+    <md-button ng-click="guide.saveContact()" class="md-raised md-primary">Guardar</md-button>
+</form>
+
+<div ng-repeat="contact in guide.contacts">
+<md-card>
+    <md-card-title>
+        <md-card-title-media>
+            <div class="md-media-sm card-media" layout>
+                <md-icon md-font-library="material-icons md-48">account_circle</md-icon>
+            </div>
+        </md-card-title-media>
+        <md-card-title-text>
+            <span class="md-headline">{{contact.contactName}}</span>
+            <span class="md-subhead description">{{contact.contactNumber}}</span>
+            <span class="md-subhead description">{{contact.contactAddress}}</span>
+        </md-card-title-text>
+    </md-card-title>
+</md-card>
+</div>

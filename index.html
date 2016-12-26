@@ -2,62 +2,43 @@
 <html>
 
 <head>
-    <title>Guía Telefónica</title>
+    <title>Angular</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/angular-material.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body ng-app="guide" ng-controller='indexCtrl as index'>
-    <h1>Guía Telefónica</h1>
-    <form ng-submit="index.addContact()">
-        <md-input-container class="md-block" flex-lg>
-            <md-icon md-font-library="material-icons">account_circle</md-icon>
-            <label>Nombre</label>
-            <input ng-model="index.contactName" type="text">
-        </md-input-container>
+<body ng-app="angular">
+    <div ng-cloak>
+        <md-content class="md-padding">
+            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-sref="guide" name="guide">Agenda</md-nav-item>
+                <md-nav-item md-nav-sref="todo" name="todo">To Do</md-nav-item>
+                <md-nav-item md-nav-sref="calculator" name="calculator">Calculadora</md-nav-item>
+                <md-nav-item md-nav-sref="other" name="other">Otro</md-nav-item>
+                <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
+      <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
+      <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
+      -->
+            </md-nav-bar>
+            <div ui-view></div>
+        </md-content>
 
-        <md-input-container class="md-block" flex-lg>
-            <md-icon md-font-library="material-icons">phone</md-icon>
-            <label>Número</label>
-            <input ng-pattern="/^[0-9]/" ng-model="index.contactNumber">
-        </md-input-container>
 
-        <md-input-container class="md-block">
-            <md-icon md-font-library="material-icons">room</md-icon>
-            <label>Dirección</label>
-            <textarea ng-model="index.contactAddress" rows="5" md-select-on-focus></textarea>
-        </md-input-container>
-
-        <md-button type="submit" class="md-raised md-primary">Agregar</md-button>
-        <md-button ng-click="index.saveContact()" class="md-raised md-primary">Guardar</md-button>
-    </form>
-
-    <div ng-repeat="contact in index.contacts">
-    <md-card>
-        <md-card-title>
-            <md-card-title-media>
-                <div class="md-media-sm card-media" layout>
-                    <md-icon md-font-library="material-icons md-48">account_circle</md-icon>
-                </div>
-            </md-card-title-media>
-            <md-card-title-text>
-                <span class="md-headline">{{contact.contactName}}</span>
-                <span class="md-subhead description">{{contact.contactNumber}}</span>
-                <span class="md-subhead description">{{contact.contactAddress}}</span>
-            </md-card-title-text>
-        </md-card-title>
-    </md-card>
-  </div>
-    <!-- scripts -->
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-animate.min.js"></script>
-    <script src="js/angular-aria.min.js"></script>
-    <script src="js/angular-messages.min.js"></script>
-    <script src="js/angular-material.min.js"></script>
-    <script src="js/angular-ui-router.min.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/controllers/indexController.js"></script>
+        <!-- scripts -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-animate.min.js"></script>
+        <script src="js/angular-aria.min.js"></script>
+        <script src="js/angular-messages.min.js"></script>
+        <script src="js/angular-material.min.js"></script>
+        <script src="js/angular-ui-router.min.js"></script>
+        <script src="js/statehelper.min.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/app.routes.js"></script>
+        <script src="app/controllers/indexController.js"></script>
+        <script src="app/controllers/todoController.js"></script>
+        <script src="app/controllers/calculatorController.js"></script>
+        <script src="app/controllers/otherController.js"></script>
 </body>
 
 </html>

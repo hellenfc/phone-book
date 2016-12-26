@@ -1,0 +1,37 @@
+<h1>To Do</h1>
+<form ng-submit="todo.addTodo()">
+    <md-input-container class="md-block" flex-lg>
+        <md-icon md-font-library="material-icons">account_circle</md-icon>
+        <label>Nombre</label>
+        <input ng-model="todo.todoName" type="text">
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <md-icon md-font-library="material-icons">room</md-icon>
+        <label>Descripción</label>
+        <textarea ng-model="todo.todoDescription" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
+
+    <md-button type="submit" class="md-raised md-primary">Agregar</md-button>
+    <md-button ng-click="todo.saveTodo()" class="md-raised md-primary">Guardar</md-button>
+</form>
+
+<md-toolbar layout="row" class="md-hue-3">
+    <div class="md-toolbar-tools">
+        <span>To do</span>
+    </div>
+</md-toolbar>
+
+<div ng-repeat="task in todo.todos">
+    <md-content>
+        <md-list-item class="md-3-line md-long-text">
+            <div class="md-list-item-text">
+                <h3>{{task.todoName}}</h3>
+                <p>
+                    {{task.todoDescription}}
+                </p>
+            </div>
+        </md-list-item>
+    </md-content>
+     <md-divider ></md-divider>
+</div>

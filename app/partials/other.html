@@ -1,0 +1,12 @@
+<h1>Other</h1>
+<form ng-submit="other.showAlert()">
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Type your text</label>
+            <input ng-model="other.textInput">
+            <md-button type="submit" class="md-raised md-primary">Primary</md-button>
+        </md-input-container>
+    </div>
+</form>
+<h3>{{other.textInput}}</h3>
+<h3>{{other.sum}}</h3>
