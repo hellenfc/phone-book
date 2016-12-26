@@ -10,10 +10,18 @@
 </form>
 <div ng-show="other.show">
     <h3>Resultado: {{other.result}}</h3>
-    <p class="together">
+    <div ng-if="other.result === 0">
+      <p>No has ingresado números.</p>
+    </div>
+    <div>
+    </div>
+    <div ng-if="other.listNumbers != ''">
+      <p class="together">
         Numeros utilizados:&nbsp;
-    </p>
-    <div ng-repeat="number in other.listNumbers track by $index" class="together">
+      </p>
+      <div ng-repeat="number in other.listNumbers track by $index" class="together">
         <p>{{number}} &nbsp;</p>
+      </div>
+
     </div>
 </div>
