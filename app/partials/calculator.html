@@ -1,1 +1,26 @@
 <h1>Calculadora</h1>
+<form ng-submit="calculator.doOperation()">
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Ingresa un número</label>
+        <input name="firstNumber" ng-model="calculator.firstNumber" placeholder="12345" type="number" required ng-pattern="/^[0-9]/">
+    </md-input-container>
+    <md-input-container class="md-block" flex-gt-sm>
+        <label>Ingresa un segundo número</label>
+        <input name="secondNumber" ng-model="calculator.secondNumber" placeholder="12345" type="number" required ng-pattern="/^[0-9]/">
+    </md-input-container>
+    <!-- <md-input-container class="md-block" flex-gt-sm>
+        <label>State</label>
+        <md-select ng-model="calculator.operation">
+            <md-option ng-repeat="opr in calculator.operation track by $index" >
+                {{opr}}
+            </md-option>
+        </md-select>
+    </md-input-container> -->
+
+    <md-radio-group ng-model="calculator.operation">
+        <md-radio-button value="Add" class="md-primary">Add</md-radio-button>
+        <md-radio-button value="Divide"> Divide </md-radio-button>
+    </md-radio-group>
+    <md-button type="submit" class="md-raised md-primary">Hacer operación</md-button>
+    <h3>Resultado: {{calculator.result}}</h3>
+</form>
